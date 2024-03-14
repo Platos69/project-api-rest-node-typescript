@@ -1,0 +1,17 @@
+{
+  "name": "t",
+  "version": "t",
+  "description": "t",
+  "main": "t",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "t",
+  "license": "t",
+  "dependencies": {
+    "yarn": "^1.22.22"
+  },
+  "repository": "t",
+  "private": null
+}
