@@ -1,5 +1,7 @@
-import { server } from './server/Server'
+import { server } from './server/Server';
 
-server.listen(3333, () => {
-    console.log('App rodando!')
+const port = 3333;
+
+server.listen(port, () => {
+    console.log('App rodando! http://localhost:' + port);
 });
