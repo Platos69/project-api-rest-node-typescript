@@ -10,4 +10,6 @@ router.get('/', (req, res) => {
 });
 router.post('/teste', (req, res) => {
     return res.status(http_status_codes_1.StatusCodes.UNAUTHORIZED).send(req.body);
+}, (e) => {
+    return console.log(e);
 });
