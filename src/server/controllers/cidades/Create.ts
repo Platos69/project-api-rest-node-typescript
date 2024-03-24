@@ -9,22 +9,19 @@ interface ICidade {
     estado: string;
 }
 
-const bodyValidation: yup.ObjectSchema<ICidade> = yup.object().shape({
-    nome: yup.string().required().min(3),
-    estado: yup.string().required().min(3),
-});
-
 interface IFilter {
-    filter: string;
+    filter?: string;
 }
 
-const queryValidation: yup.ObjectSchema<IFilter> = yup.object().shape({
-    filter: yup.string().required().min(3),
-});
-
-export const createBodyValidator = validation('body', bodyValidation);
-
-export const createQueryValidator = validation('query', queryValidation);
+export const createValidations = validation((getSchema) => ({
+    body: getSchema<ICidade>(yup.object().shape({
+        nome: yup.string().required().min(3),
+        estado: yup.string().required().min(3),
+    })),
+    query: getSchema<IFilter>(yup.object().shape({
+        filter: yup.string().required().min(3)
+    }))
+}));
 
 export const create: RequestHandler = async (req, res) => {
     const validatedData: ICidade | undefined = undefined;

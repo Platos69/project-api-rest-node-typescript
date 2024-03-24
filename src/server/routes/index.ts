@@ -12,8 +12,7 @@ router.get(
 
 router.post(
     '/cidades',
-    CidadesController.createBodyValidator,
-    CidadesController.createQueryValidator,
+    CidadesController.createValidations,
     CidadesController.create
 );
 
