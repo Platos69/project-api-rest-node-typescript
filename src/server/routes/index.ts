@@ -11,8 +11,10 @@ router.get(
     });
 
 router.post(
-    '/cidade',
-    CidadesController.create 
+    '/cidades',
+    CidadesController.createBodyValidator,
+    CidadesController.createQueryValidator,
+    CidadesController.create
 );
 
 
