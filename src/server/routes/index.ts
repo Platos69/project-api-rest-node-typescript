@@ -10,6 +10,12 @@ router.get(
         return res.send('Olá, Dev! Você está na página principal');
     });
 
+router.get(
+    '/cidades',
+    CidadesController.getAllValidations,
+    CidadesController.getAll
+);
+
 router.post(
     '/cidades',
     CidadesController.createValidations,

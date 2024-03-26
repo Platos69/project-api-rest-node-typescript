@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 
-import { validation } from '../../shared/middleware/Validation';
+import { validation } from '../../shared/middleware';
 
 interface ICidade {
     nome: string;
@@ -24,6 +24,5 @@ export const createValidations = validation((getSchema) => ({
 }));
 
 export const create: RequestHandler = async (req, res) => {
-    const filtro = req.query.filter || 'Nenhum';
-    return res.send(`Nome: ${req.body.nome}<br>Estado: ${req.body.estado}<br>Filtrou por: ${filtro}`);
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado!');
 };
