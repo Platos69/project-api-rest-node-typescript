@@ -19,11 +19,11 @@ export const createValidations = validation((getSchema) => ({
         estado: yup.string().required().min(3),
     })),
     query: getSchema<IFilter>(yup.object().shape({
-        filter: yup.string().required().min(3)
+        filter: yup.string().optional().min(3)
     }))
 }));
 
 export const create: RequestHandler = async (req, res) => {
-    const validatedData: ICidade | undefined = undefined;
-    return res.send(`Nome: ${req.body.nome}<br>Estado: ${req.body.estado}<br>Filtrou por: ${req.query.filter}`);
+    const filtro = req.query.filter || 'Nenhum';
+    return res.send(`Nome: ${req.body.nome}<br>Estado: ${req.body.estado}<br>Filtrou por: ${filtro}`);
 };
